@@ -1,0 +1,93 @@
+{% extends "posts/base.html" %}
+
+{% block content %}
+
+  <section class="hero">
+    <h1>{{ hero_headline|default:"Notes from whatever I'm learning this week." }}</h1>
+    <p class="lede">{{ hero_lede|default:"A running log of things picked up, taken apart, and half-understood." }}</p>
+    {% if now_learning %}
+    <div class="now-learning">
+      <div class="label mono">currently open on the desk</div>
+      <ul>
+        {% for item in now_learning %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </section>
+
+  {% if featured %}
+  <section id="latest">
+    <div class="section-head">
+      <h2>latest entry</h2>
+    </div>
+
+    <article class="featured">
+      <div class="logno"><span>{{ featured.log_number|stringformat:"03d" }}</span>{{ featured.published_date|date:"M j" }}</div>
+      <div>
+        <h3><a href="{{ featured.get_absolute_url }}">{{ featured.title }}</a></h3>
+        <p class="excerpt">{{ featured.excerpt }}</p>
+        <div class="meta-row">
+          <span class="tag">{{ featured.topic.name }}</span>
+          <span>{{ featured.reading_minutes }} min read</span>
+        </div>
+      </div>
+    </article>
+  </section>
+  {% endif %}
+
+  {% if entries %}
+  <section class="entries">
+    <div class="section-head">
+      <h2>earlier entries</h2>
+      {% if entries.paginator %}
+      <span class="count">page {{ entries.number }} of {{ entries.paginator.num_pages }}</span>
+      {% endif %}
+    </div>
+
+    {% for entry in entries %}
+    <article class="entry">
+      <div class="logno"><span>{{ entry.log_number|stringformat:"03d" }}</span>{{ entry.published_date|date:"M j" }}</div>
+      <div>
+        <h3><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></h3>
+        <p class="excerpt">{{ entry.excerpt }}</p>
+        <div class="meta-row">
+          <span class="tag">{{ entry.topic.name }}</span>
+          <span>{{ entry.reading_minutes }} min read</span>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </section>
+  {% else %}
+  <section class="entries">
+    <p class="excerpt">No entries yet — the first one goes here.</p>
+  </section>
+  {% endif %}
+
+  {% if entries.has_other_pages %}
+  <nav class="mono" aria-label="Entry pages">
+    {% if entries.has_previous %}
+      <a href="?page={{ entries.previous_page_number }}">newer</a>
+    {% endif %}
+    {% if entries.has_next %}
+      <a href="?page={{ entries.next_page_number }}">older</a>
+    {% endif %}
+  </nav>
+  {% endif %}
+
+  {% if topics %}
+  <section class="topics" id="topics">
+    <div class="section-head">
+      <h2>browse by topic</h2>
+    </div>
+    <div class="topic-chips">
+      {% for topic in topics %}
+      <a href="{% url 'blog:topic_detail' slug=topic.slug %}">{{ topic.name }}</a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+{% endblock %}
