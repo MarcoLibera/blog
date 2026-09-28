@@ -12,9 +12,13 @@ def index(request):
         "featured": featured,
         "entries": entries,
         "now_learning": ["network security fundamentals", "a side project in Python"],
-        "site_name": "Field Notes",
+        "site_name": "",
     })
 
 def get_post(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
-    return HttpResponse(f"Post id {post_id}, title={post.title}")
+    return render(request, "posts/post.html", {"post": post})
+
+
+def about(request):
+    return render(request, "posts/about.html", {"site_name": "About"})
