@@ -103,7 +103,7 @@
     font-weight: 500;
     line-height: 1.15;
     margin: 0;
-    max-width: 15ch;
+    max-width: 20ch;
   }
   .hero p.lede{
     max-width: 46ch;
@@ -290,9 +290,9 @@
     gap: 18px;
   }
   footer .about{
-    max-width: 55ch;
+    max-width: 70ch;
     color: var(--ink-soft);
-    font-size: 0.95rem;
+    font-size: 0.90rem;
   }
   footer .links{
     font-family: 'IBM Plex Mono', monospace;
