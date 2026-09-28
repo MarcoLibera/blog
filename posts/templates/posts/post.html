@@ -1,11 +1,18 @@
 {% extends "posts/base.html" %}
 
+{% load post_extras %}
+{% load static %}
+
+{% block title %}{{ post.title }} - Marco's Field Notes{% endblock %}
+
 {% block content %}
 
 <div>
     <h1>{{ post.title }}</h1>
     <i>{{ post.date }}</i>
-    <p>{{ post.content }}</p>
+    <div class = "post-content">
+        {% render_post post %}
+    </div>
 </div>
 
 {% endblock %}

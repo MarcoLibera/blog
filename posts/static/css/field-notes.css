@@ -326,3 +326,13 @@
     .hero h1{ max-width: 100%; }
     nav{ gap: 16px; }
   }
+
+  /* ---------- post page ---------- */
+figure.image {
+    text-align: center;
+}
+
+figure.image img {
+    max-width: 100%;
+    height: auto;
+}
