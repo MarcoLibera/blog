@@ -4,7 +4,7 @@ from .models import Post, ImagePost
 # Class to display ImagePost inline in the Post admin page
 class ImagePostInline(admin.TabularInline):
     model = ImagePost
-    extra = 1
+    extra = 0
 
 
 # Register your models here.
