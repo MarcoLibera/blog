@@ -26,8 +26,7 @@
     <article class="featured">
       <div class="logno"><span>{{ featured.log_number|stringformat:"03d" }}</span>{{ featured.published_date|date:"M j" }}</div>
       <div>
-        <h3><a href="{{ featured.get_absolute_url }}">{{ featured.title }}</a></h3>
-        <p class="excerpt">{{ featured.excerpt }}</p>
+        <h3><a href="{% url 'posts:get_post' post_id=featured.pk %}">{{ featured.title }}</a></h3>        <p class="excerpt">{{ featured.excerpt }}</p>
         <div class="meta-row">
           <span class="tag">{{ featured.topic.name }}</span>
           <span>{{ featured.reading_minutes }} min read</span>
@@ -50,7 +49,7 @@
     <article class="entry">
       <div class="logno"><span>{{ entry.log_number|stringformat:"03d" }}</span>{{ entry.published_date|date:"M j" }}</div>
       <div>
-        <h3><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></h3>
+        <h3><a href="{% url 'posts:get_post' post_id=entry.pk %}">{{ entry.title }}</a></h3>
         <p class="excerpt">{{ entry.excerpt }}</p>
         <div class="meta-row">
           <span class="tag">{{ entry.topic.name }}</span>
