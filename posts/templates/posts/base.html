@@ -17,11 +17,11 @@
 
   <header>
     <div class="header-row">
-      <div class="wordmark"><span class="dot"></span>{{ site_name|default:"Field Notes" }}</div>
+      <div class="wordmark"><span class="dot"></span>{{ site_name|default:"Marco's Field Notes" }}</div>
       <nav>
         <a href="{% url 'posts:index' %}">home</a>
         <a href="https://github.com/MarcoLibera">github</a>
-
+        <a href="{% url 'posts:about' %}">about</a>
       </nav>
     </div>
   </header>
@@ -30,13 +30,14 @@
 
   <footer id="about">
     <div class="about">
-      <strong>About this log —</strong> {{ about_blurb|default:"written in the evenings, wherever there happens to be a desk. Mostly a way of remembering what I figured out, in case it's useful to someone else stuck on the same thing." }}
+      <strong>About this log —</strong> {{ about_blurb|default:"written in the evenings, wherever there happens to be a desk, or just on my lap. Mostly a way of remembering things that I figured out." }}
     </div>
-    <div class="links" id="archive">
-      <a href="{{ github_url|default:'#' }}">github</a>
-      <a href="mailto:{{ contact_email|default:'' }}">email</a>
-    </div>
-    <div class="fineprint">{{ site_name|default:"field notes" }} — entry 001 started {{ started_date|default:"jan 2026" }}</div>
+    <nav>
+        <a href="{% url 'posts:index' %}">home</a>
+        <a href="https://github.com/MarcoLibera">github</a>
+        <a href="{% url 'posts:about' %}">about</a>
+      </nav>
+    <div class="fineprint">{{ site_name|default:"field notes" }} — Started {{ started_date|default:"jan 2026" }}. Some content on this site is drafted with the help of AI tools and reviewed/edited by me before publishing.</div>
   </footer>
 
 </div>
