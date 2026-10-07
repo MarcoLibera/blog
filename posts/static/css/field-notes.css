@@ -161,14 +161,23 @@
   .featured{
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-around;
     flex-wrap: wrap;
-    grid-template-columns: 90px 1fr;
     gap: 40px;
     padding-bottom: 34px;
     border-bottom: 1px solid var(--paper-line);
     align-items: center;
   }
+
+  .featured img {
+    flex: 0 0 320px;    /* image: don't grow, don't shrink, fixed 320px */
+    width: 320px;
+    max-width: 100%;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
   .featured .logno{
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.85rem;
