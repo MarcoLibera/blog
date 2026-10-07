@@ -11,7 +11,7 @@ def index(request):
     return render(request, "posts/home.html", {
         "featured": featured,
         "entries": entries,
-        "now_learning": ["network security fundamentals", "a side project in Python"],
+        # "now_learning": ["network security fundamentals", "a side project in Python"],
         "site_name": "",
     })
 

@@ -24,14 +24,15 @@
     </div>
 
     <article class="featured">
-      <div class="logno"><span>{{ featured.log_number|stringformat:"03d" }}</span>{{ featured.published_date|date:"M j" }}</div>
       <div>
-        <h3><a href="{% url 'posts:get_post' post_id=featured.pk %}">{{ featured.title }}</a></h3>        <p class="excerpt">{{ featured.excerpt }}</p>
+        <h3><a href="{% url 'posts:get_post' post_id=featured.pk %}">{{ featured.title }}</a></h3>        
+        <p class="excerpt">{{ featured.excerpt }}</p>
         <div class="meta-row">
           <span class="tag">{{ featured.topic.name }}</span>
           <span>{{ featured.reading_minutes }} min read</span>
         </div>
       </div>
+      <img src="{{ featured.images.first.image.url }}">
     </article>
   </section>
   {% endif %}
