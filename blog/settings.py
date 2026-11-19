@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure--^@o3%#$%!&1^xfsaxf60zh)%=fuye_4gy^@4lu%fz&0698u#h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False 
 
-ALLOWED_HOSTS = [16.176.117.167]
+ALLOWED_HOSTS = ["16.176.117.167", "marcosfieldnotes.com", "www.marcosfieldnotes.com"]
 
 
 # Application definition
@@ -133,6 +133,10 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = "/var/www/blog/media"
 
 
-CSRF_TRUSTED_ORIGINS = ["16.176.117.167"]
+CSRF_TRUSTED_ORIGINS = ["16.176.117.167", "marcosfieldnotes.com"]
 
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
